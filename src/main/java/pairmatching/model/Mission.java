@@ -21,7 +21,7 @@ public enum Mission {
 	}
 
 	public boolean isLevel(Level level) {
-		return level.is(level);
+		return this.level.is(level);
 	}
 
 	public String getName() {
