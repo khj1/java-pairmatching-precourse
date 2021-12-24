@@ -11,7 +11,12 @@ public class Pair {
 		Collections.addAll(pair, crews);
 	}
 
+	public List<Crew> get() {
+		return pair;
+	}
+
 	public static Pair create(Crew... crews) {
 		return new Pair(crews);
 	}
+
 }

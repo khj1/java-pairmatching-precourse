@@ -16,6 +16,10 @@ public class Pairs {
 		pairs = matchPair(crewNames, course);
 	}
 
+	public List<Pair> get() {
+		return pairs;
+	}
+
 	private List<Pair> matchPair(List<String> crewNames, Course course) {
 		if (isCrewNamesSizeOdd(crewNames)) {
 			return pairMatchingOfOddSize(crewNames, course);
