@@ -16,11 +16,19 @@ public enum Course {
 		return Arrays.stream(values()).anyMatch(course -> course.is(courseString));
 	}
 
-	private boolean is(String course) {
-		return name.equals(course);
-	}
-
 	public String getName() {
 		return name;
+	}
+
+	public boolean isBackend() {
+		return this == BACKEND;
+	}
+
+	public boolean isFrontend() {
+		return this == FRONTEND;
+	}
+
+	private boolean is(String course) {
+		return name.equals(course);
 	}
 }
