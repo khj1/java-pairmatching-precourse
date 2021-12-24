@@ -13,7 +13,7 @@ public class OutputView {
 	private static final String DOT = ". ";
 	private static final String DIVIDING_LINE = "#############################################";
 	private static final String COURSES_PREFIX = "과정: ";
-	private static final String LEVEL_PREFIX = "\t-";
+	private static final String LEVEL_PREFIX = "\t- ";
 	private static final String COLON = ": ";
 	private static final String DELIMITER = " | ";
 	private static final String MISSION_PREFIX = "미션:";
