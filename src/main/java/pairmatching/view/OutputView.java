@@ -17,6 +17,8 @@ public class OutputView {
 	private static final String COLON = ": ";
 	private static final String DELIMITER = " | ";
 	private static final String MISSION_PREFIX = "미션:";
+	private static final String COURSE_LEVEL_MISSION_INPUT_EXAMPLE = "ex) 백엔드, 레벨1, 자동차경주";
+	private static final String COURSE_LEVEL_MISSION_INPUT_MESSAGE = "과정, 레벨, 미션을 선택하세요.";
 
 	public static void printCategories() {
 		printFunctionInit();
@@ -28,6 +30,19 @@ public class OutputView {
 		printCourses();
 		printMissions();
 		printDividingLine();
+	}
+
+	public static void printCourseLevelMissionInputMessage() {
+		printCourseLevelMissionInputInit();
+		printCourseLevelMissionInputExample();
+	}
+
+	private static void printCourseLevelMissionInputExample() {
+		System.out.println(COURSE_LEVEL_MISSION_INPUT_EXAMPLE);
+	}
+
+	private static void printCourseLevelMissionInputInit() {
+		System.out.println(COURSE_LEVEL_MISSION_INPUT_MESSAGE);
 	}
 
 	private static void printMissions() {
