@@ -2,6 +2,8 @@ package pairmatching.model;
 
 import static pairmatching.model.Level.*;
 
+import java.util.Arrays;
+
 public enum Mission {
 	RACING_CAR(LEVEL1, "자동차경주"),
 	LOTTO(LEVEL1, "로또"),
@@ -18,6 +20,14 @@ public enum Mission {
 	Mission(Level level, String name) {
 		this.level = level;
 		this.name = name;
+	}
+
+	public static boolean contains(String missionString) {
+		return Arrays.stream(values()).anyMatch(mission -> mission.isName(missionString));
+	}
+
+	public boolean isName(String missionString) {
+		return name.equals(missionString);
 	}
 
 	public boolean isLevel(Level level) {
