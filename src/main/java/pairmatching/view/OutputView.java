@@ -14,9 +14,9 @@ public class OutputView {
 	private static final String DIVIDING_LINE = "#############################################";
 	private static final String COURSES_PREFIX = "과정: ";
 	private static final String LEVEL_PREFIX = "\t-";
-	public static final String COLON = ": ";
-	public static final String DELIMITER = " | ";
-	public static final String MISSION_PREFIX = "미션:";
+	private static final String COLON = ": ";
+	private static final String DELIMITER = " | ";
+	private static final String MISSION_PREFIX = "미션:";
 
 	public static void printCategories() {
 		printFunctionInit();
