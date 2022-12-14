@@ -23,7 +23,34 @@ public class Crews {
     }
 
     public List<Crew> shuffle() {
-        return Randoms.shuffle(crews);
+        List<String> shuffledNames = shuffleNames();
+
+        return toCrews(shuffledNames);
+    }
+
+    private List<Crew> toCrews(List<String> shuffledNames) {
+        Course course = getCourse();
+
+        return shuffledNames.stream()
+                .map(name -> Crew.create(course, name))
+                .collect(Collectors.toList());
+    }
+
+    private List<String> shuffleNames() {
+        return Randoms.shuffle(getNames());
+    }
+
+    private List<String> getNames() {
+        return crews.stream()
+                .map(Crew::getName)
+                .collect(Collectors.toList());
+    }
+
+    private Course getCourse() {
+        return crews.stream()
+                .map(Crew::getCourse)
+                .findFirst()
+                .get();
     }
 
     @Override

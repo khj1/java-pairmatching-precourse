@@ -21,7 +21,7 @@ public class PairMatching {
 
     public List<Pair> match() {
         List<Pair> pairs = new ArrayList<>();
-        List<Crew> shuffled = crews.shuffle();
+        List<Crew> shuffled = new ArrayList<>(crews.shuffle());
 
         while (shuffled.size() > 1) {
             Crews pairedCrews = Crews.of(shuffled.remove(0), shuffled.remove(0));
