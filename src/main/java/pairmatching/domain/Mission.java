@@ -12,20 +12,21 @@ public enum Mission {
     PERFORMANCE("성능개선"),
     DISTRIBUTION("배포");
 
-    private final String missionName;
+    private static final String NO_SUCH_MISSION = "존재하지 않는 미션입니다.";
+    private final String name;
 
     Mission(String missionName) {
-        this.missionName = missionName;
+        this.name = missionName;
     }
 
-    public static Mission from(String missionName) {
+    public static Mission from(String name) {
         return Arrays.stream(values())
-                .filter(mission -> mission.hasSameMissionName(missionName))
+                .filter(mission -> mission.hasSameName(name))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 미션입니다."));
+                .orElseThrow(() -> new IllegalArgumentException(NO_SUCH_MISSION));
     }
 
-    private boolean hasSameMissionName(String missionName) {
-        return this.missionName.equals(missionName);
+    private boolean hasSameName(String name) {
+        return this.name.equals(name);
     }
 }
