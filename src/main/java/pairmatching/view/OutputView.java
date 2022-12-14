@@ -17,4 +17,10 @@ public class OutputView {
                 .map(Pair::toString)
                 .collect(Collectors.joining(System.lineSeparator()));
     }
+
+    public void printError(IllegalArgumentException e) {
+        System.out.println();
+        System.out.print("[ERROR] ");
+        System.out.println(e.getMessage());
+    }
 }
