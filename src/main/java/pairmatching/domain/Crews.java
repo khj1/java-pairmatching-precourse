@@ -2,7 +2,7 @@ package pairmatching.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class Crews {
@@ -17,9 +17,11 @@ public class Crews {
         return new Crews(CrewRepository.findByCourse(course));
     }
 
-    public List<Crew> shuffle() {
-        List<Crew> shuffled = Randoms.shuffle(crews);
+    public static Crews of(Crew... crews) {
+        return new Crews(Arrays.asList(crews));
+    }
 
-        return Collections.unmodifiableList(shuffled);
+    public List<Crew> shuffle() {
+        return Randoms.shuffle(crews);
     }
 }
