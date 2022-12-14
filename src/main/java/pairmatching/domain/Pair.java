@@ -13,4 +13,9 @@ public class Pair {
     public static Pair create(Crews crews, Level level) {
         return new Pair(crews, level);
     }
+
+    @Override
+    public String toString() {
+        return crews.toString();
+    }
 }

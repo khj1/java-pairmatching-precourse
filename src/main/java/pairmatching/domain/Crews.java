@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Crews {
 
@@ -23,5 +24,12 @@ public class Crews {
 
     public List<Crew> shuffle() {
         return Randoms.shuffle(crews);
+    }
+
+    @Override
+    public String toString() {
+        return crews.stream()
+                .map(Crew::getName)
+                .collect(Collectors.joining(" : "));
     }
 }
