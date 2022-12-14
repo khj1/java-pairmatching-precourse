@@ -24,5 +24,6 @@ public class OutputView {
         System.out.println();
         System.out.print("[ERROR] ");
         System.out.println(e.getMessage());
+        System.out.println();
     }
 }

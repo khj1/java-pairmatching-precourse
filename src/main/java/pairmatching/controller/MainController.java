@@ -10,7 +10,7 @@ public class MainController {
         MainCommand mainCommand;
         do {
             mainCommand = ExceptionHandler.checkError(InputView::readMainCommand);
-            mainCommand.run();
+            ExceptionHandler.checkError(mainCommand::run);
         } while (mainCommand.isRunnable());
     }
 }

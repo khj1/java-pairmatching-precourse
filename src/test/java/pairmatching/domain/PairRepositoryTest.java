@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class PairRepositoryTest {
 
@@ -23,5 +25,11 @@ public class PairRepositoryTest {
                 .contains(Mission.LOTTO)
                 .size()
                 .isEqualTo(10);
+    }
+
+    @Test
+    void 매칭_이력이_없는_경우_예외처리() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> PairRepository.findByCourseAndMission(Course.BACKEND, Mission.DISTRIBUTION));
     }
 }

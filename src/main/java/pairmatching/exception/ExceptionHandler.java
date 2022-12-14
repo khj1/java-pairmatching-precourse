@@ -13,4 +13,12 @@ public class ExceptionHandler {
             return checkError(inputReader);
         }
     }
+
+    public static void checkError(Runnable process) {
+        try {
+            process.run();
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+        }
+    }
 }

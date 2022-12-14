@@ -15,9 +15,6 @@ public class InquiryController implements Controllable {
         ContentsRequestDto requestDto = ExceptionHandler.checkError(this::readContents);
 
         List<Pair> pairs = PairRepository.findByCourseAndMission(requestDto.getCourse(), requestDto.getMission());
-        if (pairs.size() == 0) {
-            throw new IllegalArgumentException("매칭 이력이 존재하지 않습니다.");
-        }
         OutputView.printPairs(pairs);
     }
 }
