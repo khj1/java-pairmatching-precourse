@@ -28,4 +28,9 @@ public enum MainCommand {
     private boolean hasSameCommand(String command) {
         return this.command.equals(command);
     }
+
+    @Override
+    public String toString() {
+        return command + ". " + description;
+    }
 }
