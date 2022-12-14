@@ -14,23 +14,23 @@ public class InputView {
     private static final String REGEX = ",";
     private static final String DELIMITER = " | ";
 
-    public MainCommand readMainCommand() {
+    public static MainCommand readMainCommand() {
         printMain();
         return MainCommand.from(Console.readLine());
     }
 
-    private void printMain() {
+    private static void printMain() {
         System.out.println("기능을 선택하세요.");
         System.out.println(makeMainScreen());
     }
 
-    private String makeMainScreen() {
+    private static String makeMainScreen() {
         return Arrays.stream(MainCommand.values())
                 .map(MainCommand::toString)
                 .collect(Collectors.joining(System.lineSeparator()));
     }
 
-    public List<String> readLevelCourseMission() {
+    public static List<String> readLevelCourseMission() {
         printContents();
         System.out.println("과정, 레벨, 미션을 선택하세요.");
         System.out.println("ex) 백엔드, 레벨1, 자동차경주");
@@ -38,7 +38,7 @@ public class InputView {
         return Arrays.asList(Console.readLine().split(REGEX));
     }
 
-    private void printContents() {
+    private static void printContents() {
         System.out.println();
         printSeparator();
         printCourses();
@@ -50,23 +50,23 @@ public class InputView {
         System.out.println("#############################################");
     }
 
-    private void printCourses() {
+    private static void printCourses() {
         System.out.print("과정: ");
         System.out.println(getCourses());
     }
 
-    private String getCourses() {
+    private static String getCourses() {
         return Arrays.stream(Course.values())
                 .map(Course::toString)
                 .collect(Collectors.joining(DELIMITER));
     }
 
-    private void printMissionsByLevel() {
+    private static void printMissionsByLevel() {
         System.out.println("미션: ");
         System.out.println(getMissionsByLevel());
     }
 
-    private String getMissionsByLevel() {
+    private static String getMissionsByLevel() {
         return Arrays.stream(Level.values())
                 .map(Level::toString)
                 .collect(Collectors.joining(System.lineSeparator()));
