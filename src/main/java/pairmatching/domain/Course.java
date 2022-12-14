@@ -6,7 +6,7 @@ public enum Course {
     BACKEND("백엔드", "src/main/resources/backend-crew.md"),
     FRONTEND("프론트엔드", "src/main/resources/frontend-crew.md");
 
-    private static final String NO_SUCH_COURSE = "존재하지 않는 고정입니다.";
+    private static final String NO_SUCH_COURSE = "존재하지 않는 과정입니다.";
 
     private final String resource;
     private final String name;
