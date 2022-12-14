@@ -6,6 +6,7 @@ import pairmatching.domain.Level;
 import pairmatching.domain.Mission;
 import pairmatching.domain.Pair;
 import pairmatching.domain.PairMatching;
+import pairmatching.domain.PairRepository;
 import pairmatching.dto.ContentsRequestDto;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
@@ -24,13 +25,24 @@ public class PairMatchingController {
     }
 
     public void run() {
-        MainCommand mainCommand = checkError(inputView::readMainCommand);
-        ContentsRequestDto requestDto = checkError(this::readContents);
+        MainCommand mainCommand;
+        do {
+            mainCommand = checkError(inputView::readMainCommand);
+            if (mainCommand.isMatching()) {
+                ContentsRequestDto requestDto = checkError(this::readContents);
 
-        PairMatching pairMatching = initPairMatching(requestDto);
-        List<Pair> pairs = pairMatching.match();
+                PairMatching pairMatching = initPairMatching(requestDto);
+                List<Pair> pairs = pairMatching.match();
 
-        outputView.printPairs(pairs);
+                outputView.printPairs(pairs);
+            }
+            if (mainCommand.isInquiry()) {
+                ContentsRequestDto requestDto = checkError(this::readContents);
+
+                List<Pair> pairs = PairRepository.findByCourseAndMission(requestDto.getCourse(), requestDto.getMission());
+                outputView.printPairs(pairs);
+            }
+        } while (mainCommand.isRunnable());
     }
 
     private static PairMatching initPairMatching(ContentsRequestDto requestDto) {

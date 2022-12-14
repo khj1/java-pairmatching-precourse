@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 public class OutputView {
 
     public void printPairs(List<Pair> pairs) {
+        System.out.println();
+        System.out.println("페어 매칭 결과입니다.");
         System.out.println(toString(pairs));
         System.out.println();
     }

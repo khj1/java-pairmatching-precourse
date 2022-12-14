@@ -33,4 +33,16 @@ public enum MainCommand {
     public String toString() {
         return command + ". " + description;
     }
+
+    public boolean isMatching() {
+        return this == MATCHING;
+    }
+
+    public boolean isInquiry() {
+        return this == INQUIRY;
+    }
+
+    public boolean isRunnable() {
+        return this != QUIT;
+    }
 }
