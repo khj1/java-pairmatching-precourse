@@ -1,6 +1,5 @@
 package pairmatching.view;
 
-import pairmatching.command.MainCommand;
 import pairmatching.domain.Course;
 import pairmatching.domain.Level;
 
@@ -11,19 +10,8 @@ public class OutputView {
 
     private static final String DELIMITER = " | ";
 
-    public void printMain() {
-        System.out.println("기능을 선택하세요.");
-        System.out.println(makeMainScreen());
-        System.out.println();
-    }
-
-    private String makeMainScreen() {
-        return Arrays.stream(MainCommand.values())
-                .map(MainCommand::toString)
-                .collect(Collectors.joining(System.lineSeparator()));
-    }
-
     public void printContents() {
+        System.out.println();
         printSeparator();
         printCourses();
         printMissionsByLevel();
