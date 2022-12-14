@@ -7,7 +7,7 @@ public enum Course {
     FRONTEND("프론트엔드", "src/main/resources/frontend-crew.md");
 
     private static final String NO_SUCH_COURSE = "존재하지 않는 고정입니다.";
-    
+
     private final String resource;
     private final String name;
 
@@ -29,5 +29,10 @@ public enum Course {
 
     public String getResource() {
         return resource;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
