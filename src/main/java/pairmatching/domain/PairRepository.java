@@ -40,4 +40,12 @@ public class PairRepository {
         }
         return pairs;
     }
+
+    public static void clear() {
+        pairs.clear();
+    }
+
+    public static Map<Course, List<Pair>> pairs() {
+        return pairs;
+    }
 }
