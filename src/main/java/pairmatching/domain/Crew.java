@@ -13,4 +13,8 @@ public class Crew {
     public static Crew create(Course course, String name) {
         return new Crew(course, name);
     }
+
+    public boolean hasSameCourse(Course course) {
+        return this.course == course;
+    }
 }

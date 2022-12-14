@@ -35,4 +35,10 @@ public class CrewRepository {
             throw new IllegalArgumentException("파일을 읽어들일 수 없습니다.");
         }
     }
+
+    public static List<Crew> findByCourse(Course course) {
+        return crews.stream()
+                .filter(crew -> crew.hasSameCourse(course))
+                .collect(Collectors.toList());
+    }
 }

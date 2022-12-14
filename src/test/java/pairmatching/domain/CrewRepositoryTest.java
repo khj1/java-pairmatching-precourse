@@ -17,4 +17,14 @@ class CrewRepositoryTest {
 
         assertThat(crews.size()).isEqualTo(35);
     }
+
+    @Test
+    void 크루_명단을_과정별로_불러올_수_있다() {
+        List<Crew> crews = CrewRepository.findByCourse(Course.FRONTEND);
+
+        boolean expected = crews.stream()
+                .allMatch(crew -> crew.hasSameCourse(Course.FRONTEND));
+
+        assertThat(expected).isTrue();
+    }
 }
